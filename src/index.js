@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+let expression = 10; // valid values are 0-6
+switch (expression) {
+  case 0:
 ReactDOM.render(
   // JS way of rendering
   // React.createElement(Hi, null),
@@ -21,7 +24,77 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+    console.log('Inside Case 0');
+    break;
 
+  case 1:
+    // Basic Example of Render with 1 component
+    ReactDOM.render(<CounterButton />, document.getElementById('root'));
+    console.log('Inside Case 1');
+    break;
+
+  case 2:
+    // Basic Example of Render with 2 component - use array
+    ReactDOM.render(
+      [<CounterButton />, <CounterButton />],
+      document.getElementById('root')
+    );
+    console.log('Inside Case 2');
+    break;
+
+  case 3:
+    // Basic Example of Render with 2 component - use parent div
+    ReactDOM.render(
+      <div>
+        <CounterButton />
+        <CounterButton />
+      </div>,
+      document.getElementById('root')
+    );
+    console.log('Inside Case 3');
+    break;
+
+  case 4:
+    // Basic Example of Render with 2 component - use React Fragement
+    // this doesnt inject parent div
+    ReactDOM.render(
+      <React.Fragment>
+        <CounterButton />
+        <CounterButton />
+      </React.Fragment>,
+      document.getElementById('root')
+    );
+    console.log('Inside Case 4');
+    break;
+
+  case 5:
+    // another JSX shortcut for React Fragment
+    ReactDOM.render(
+      <>
+        <CounterButton />
+        <CounterButton />
+      </>,
+      document.getElementById('root')
+    );
+    console.log('Inside Case 5');
+    break;
+
+  case 6:
+    function Wrapper() {
+      return (
+        <div>
+          <CounterButton />
+          <CounterButton />
+        </div>
+      );
+    }
+    ReactDOM.render(<Wrapper />, document.getElementById('root'));
+    console.log('Inside Case 6');
+    break;
+
+  default:
+    console.log('Do nothing');
+}
 // The JSX way of building component
 function Hello() {
   return <div> Hello here</div>;
@@ -73,11 +146,8 @@ function FunctionButton() {
 // each component has it own state!! wow
 function CounterButton() {
   const [counter, setCounter] = React.useState(0);
-  return (
-    <button onClick={() => setCounter(counter + 1)}>
-      Counter :: {counter}
-    </button>
-  );
+  const handleClick = () => setCounter(counter + 1);
+  return <button onClick={handleClick}>Counter :: {counter}</button>;
 }
 
 function CounterButton1() {
