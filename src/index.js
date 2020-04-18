@@ -15,6 +15,7 @@ ReactDOM.render(
     <Hi />
     <lowercase />
     <Lowercase />
+    <FunctionButton />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -45,6 +46,25 @@ function Lowercase() {
 // expressions using {}
 function Button() {
   return <button>{Math.random() + 's'}</button>;
+}
+
+// using functions
+function logFn() {
+  console.log(Math.random() + 'A');
+}
+
+// Passsing functions inline as well as externally defined
+function FunctionButton() {
+  return [
+    <button onClick={logFn}>LOG</button>,
+    <button
+      onClick={function logFn() {
+        console.log(Math.random() + 'B');
+      }}
+    >
+      LOG
+    </button>,
+  ];
 }
 
 // If you want your app to work offline and load faster, you can change
