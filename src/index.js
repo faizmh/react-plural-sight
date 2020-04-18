@@ -9,6 +9,7 @@ ReactDOM.render(
   // React.createElement(Hi, null),
 
   <React.StrictMode>
+    <Button />
     <App />
     <Hello />
     <Hi />
@@ -39,6 +40,11 @@ function Lowercase() {
       Does this lowercase component render- only if the function name is in caps
     </div>
   );
+}
+
+// expressions using {}
+function Button() {
+  return <button>{Math.random() + 's'}</button>;
 }
 
 // If you want your app to work offline and load faster, you can change
