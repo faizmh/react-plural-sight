@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './react-in-action.js';
+
 let expression = 10; // valid values are 0-6
 switch (expression) {
   case 0:
