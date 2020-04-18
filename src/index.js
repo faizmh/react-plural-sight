@@ -12,6 +12,8 @@ ReactDOM.render(
     <App />
     <Hello />
     <Hi />
+    <lowercase />
+    <Lowercase />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -25,6 +27,18 @@ function Hello() {
 
 function Hi() {
   return React.createElement('div', null, 'Hi there!!');
+}
+
+function lowercase() {
+  return <div> Does this lowercase component render </div>;
+}
+
+function Lowercase() {
+  return (
+    <div>
+      Does this lowercase component render- only if the function name is in caps
+    </div>
+  );
 }
 
 // If you want your app to work offline and load faster, you can change
