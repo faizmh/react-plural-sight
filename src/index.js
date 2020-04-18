@@ -7,23 +7,23 @@ import * as serviceWorker from './serviceWorker';
 let expression = 10; // valid values are 0-6
 switch (expression) {
   case 0:
-ReactDOM.render(
-  // JS way of rendering
-  // React.createElement(Hi, null),
+    ReactDOM.render(
+      // JS way of rendering
+      // React.createElement(Hi, null),
 
-  <React.StrictMode>
-    <Button />
-    <App />
-    <Hello />
-    <Hi />
-    <lowercase />
-    <Lowercase />
-    <CounterButton />
-    <CounterButton1 />
-    <FunctionButton />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+      <React.StrictMode>
+        <Button />
+        <App />
+        <Hello />
+        <Hi />
+        <lowercase />
+        <Lowercase />
+        <CounterButton />
+        <CounterButton1 />
+        <FunctionButton />
+      </React.StrictMode>,
+      document.getElementById('root')
+    );
     console.log('Inside Case 0');
     break;
 
@@ -95,6 +95,30 @@ ReactDOM.render(
   default:
     console.log('Do nothing');
 }
+
+// Pass value between sibling. This is not possible.
+// So create state in parent element.. Here it is Wrapper
+// pass the state element as props to child elements
+function Counter(props) {
+  return <button onClick={props.onClickFunction}>+1</button>;
+}
+
+function Display(props) {
+  return props.message;
+}
+
+function Wrapper() {
+  const [counter, setCounter] = React.useState(20);
+  const incrementCounter = () => setCounter(counter + 1);
+  return (
+    <div>
+      <Counter onClickFunction={incrementCounter} />
+      <Display message={counter} />
+    </div>
+  );
+}
+ReactDOM.render(<Wrapper />, document.getElementById('root'));
+
 // The JSX way of building component
 function Hello() {
   return <div> Hello here</div>;
