@@ -15,6 +15,8 @@ ReactDOM.render(
     <Hi />
     <lowercase />
     <Lowercase />
+    <CounterButton />
+    <CounterButton1 />
     <FunctionButton />
   </React.StrictMode>,
   document.getElementById('root')
@@ -65,6 +67,26 @@ function FunctionButton() {
       LOG
     </button>,
   ];
+}
+
+// using state with useState hook
+// each component has it own state!! wow
+function CounterButton() {
+  const [counter, setCounter] = React.useState(0);
+  return (
+    <button onClick={() => setCounter(counter + 1)}>
+      Counter :: {counter}
+    </button>
+  );
+}
+
+function CounterButton1() {
+  const [counter, setCounter] = React.useState(0);
+  return (
+    <button onClick={() => setCounter(counter + 1)}>
+      Counter1 :: {counter}
+    </button>
+  );
 }
 
 // If you want your app to work offline and load faster, you can change
