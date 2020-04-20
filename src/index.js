@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import './react-in-action.js';
+import './github-example.js';
 
 let expression = 10; // valid values are 0-6
 switch (expression) {
